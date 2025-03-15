@@ -18,7 +18,7 @@ export const goodsFromServer = [
 
 export const App = () => {
   const [sortField, setSortField] = useState('');
-  const [reversed, setReversed] = useState(false);
+  const [reversed, handleReverse] = useState(false);
 
   let visibleGoods = [...goodsFromServer];
 
@@ -61,7 +61,7 @@ export const App = () => {
         <button
           type="button"
           className={`button is-warning ${classnames({ 'is-light': !reversed })}`}
-          onClick={() => setReversed(!reversed)}
+          onClick={() => handleReverse(!reversed)}
         >
           Reverse
         </button>
@@ -72,7 +72,7 @@ export const App = () => {
             className="button is-danger is-light"
             onClick={() => {
               setSortField('');
-              setReversed(false);
+              handleReverse(false);
             }}
           >
             Reset
